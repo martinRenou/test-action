@@ -9,7 +9,7 @@ jobs:
   test:
 
     name: PR comment
-    if: ${{ github.event.issue.pull_request }}
+    if: "${{ github.event.issue.pull_request }} && contains(github.event.comment.body, 'Please run action')"
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
