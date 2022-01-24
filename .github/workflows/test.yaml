@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+
+jobs:
+  test:
+
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+
+      - run: |
+          echo the comment
+        env:
+          ISSUE: ${{ github.event.issue }}
