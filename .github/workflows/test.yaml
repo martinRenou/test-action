@@ -17,4 +17,4 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
 
-      - run: echo "${{ github.event.issue }}"
+      - run: echo "${{ github.event.comment.body }}"
