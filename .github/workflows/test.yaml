@@ -17,6 +17,4 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
 
-      - run: echo $ISSUE
-        env:
-          ISSUE: ${{ github.event.issue.comment }}
+      - run: echo "${{ github.event.issue }}"
